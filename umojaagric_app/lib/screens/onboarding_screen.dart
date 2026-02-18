@@ -64,12 +64,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   'Smarter systems, zero spoilage',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.green.shade200,
+                    color: Colors.green,
                   ),
                 ),
-                const Spacer(),
+                 Spacer(),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 50.0),
+                  padding:  EdgeInsets.only(bottom: 50.0),
                   child: GestureDetector(
                     onTap: _nextPage,
                     child: Container(
@@ -80,10 +80,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         color: Colors.green,
                         border: Border.all(color: Colors.white, width: 2),
                       ),
-                      child: const Icon(
+                      child:  Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
-                        size: 30,
+                        size: 22,
                       ),
                     ),
                   ),
@@ -101,10 +101,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             child: Column(
               children: [
+                  
                 Expanded(
                   child: Center(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -112,20 +113,28 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 10,
-                            offset: const Offset(0, 5),
+                            offset: Offset(0, 5),
                           ),
                         ],
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.language, color: Colors.green),
-                          const SizedBox(width: 10),
+                         Icon(Icons.language, color: Colors.green),
+                         SizedBox(width: 10),
+                          Text(
+                            'Select Language',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black87,
+                            ),
+                          ),
                           DropdownButtonHideUnderline(
                             child: DropdownButton<String>(
                               value: _selectedLanguage,
-                              icon: const Icon(Icons.arrow_drop_down, color: Colors.green),
-                              style: const TextStyle(
+                              icon:  Icon(Icons.arrow_drop_down, color: Colors.green),
+                              style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.black87,
                                 fontWeight: FontWeight.w500,
@@ -151,7 +160,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 50.0),
+                  padding: EdgeInsets.only(bottom: 50.0),
                   child: GestureDetector(
                     onTap: _nextPage,
                     child: Container(
@@ -162,10 +171,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         color: Colors.green,
                         border: Border.all(color: Colors.white, width: 2),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
-                        size: 30,
+                        size: 22,
                       ),
                     ),
                   ),
@@ -222,7 +231,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),
                   blurRadius: 15,
-                  offset: const Offset(0, 8),
+                  offset: Offset(0, 8),
                 ),
               ],
             ),
@@ -258,7 +267,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Spacer(flex: 2),
           // Bottom Controls
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: EdgeInsets.all(30.0),
             child: Column(
               children: [
                 // Page Indicator Dots
@@ -297,7 +306,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Container(
                       width: 60,
                       height: 60,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.green,
                       ),
