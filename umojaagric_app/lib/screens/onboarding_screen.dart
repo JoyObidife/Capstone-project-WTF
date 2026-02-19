@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umojaagric_app/widgets/onboarding_page.dart';
-import 'package:umojaagric_app/pages/Logic_page.dart';
+import 'package:umojaagric_app/auth/welcome_page.dart';
 import 'package:umojaagric_app/pages/home_page.dart'; // Assuming HomePage exists here based on previous context
 
 class OnboardingScreen extends StatefulWidget {
@@ -32,7 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _skipToRoleSelection() {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const RoleSelectionScreen()),
+      MaterialPageRoute(builder: (context) => const WelcomePage()),
     );
   }
 
