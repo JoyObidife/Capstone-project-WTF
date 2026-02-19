@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umojaagric_app/widgets/onboarding_page.dart';
+import 'package:umojaagric_app/pages/role_selection_screen.dart';
 import 'package:umojaagric_app/pages/home_page.dart'; // Assuming HomePage exists here based on previous context
 
 class OnboardingScreen extends StatefulWidget {
@@ -26,6 +27,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _pageController.nextPage(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
+    );
+  }
+
+  void _skipToRoleSelection() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => const RoleSelectionScreen()),
     );
   }
 
@@ -185,7 +192,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
           // SCREEN 3: Real-Time Tracking
           _buildContentPage(
-            imagePath: 'assets/images/onboarding_screen_2.png',
+            imagePath: 'assets/images/onboarding_screen_2.jpeg',
             title: 'Real-Time Tracking',
             description: 'Monitor your produce journey from farm to market with real-time updates and meaningful insights.',
             pageIndex: 2,
@@ -282,7 +289,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: double.infinity,
                     height: 55,
                     child: ElevatedButton(
-                      onPressed: _skipToHome,
+                      onPressed: _skipToRoleSelection,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                         shape: RoundedRectangleBorder(
