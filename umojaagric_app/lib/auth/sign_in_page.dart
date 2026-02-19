@@ -67,17 +67,31 @@ class _SignInPageState extends State<SignInPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Center(
                   child: Image.asset('assets/images/product_image.png', height: 80),
                 ),
-                const SizedBox(height: 40),
-                const Text(
-                  'Sign in',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+               SizedBox(height: 40),
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Sign in',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Sign in as ${widget.role.replaceAll('_', ' ')}',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -87,7 +101,7 @@ class _SignInPageState extends State<SignInPage> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                const SizedBox(height: 16),
+                 SizedBox(height: 16),
                 CustomPasswordField(
                   label: 'Password',
                   controller: _passwordController,
@@ -106,8 +120,8 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                const SizedBox(height: 32),
+                 SizedBox(height: 20),
+               SizedBox(height: 32),
                 CustomButton(
                   label: 'Sign in',
                   onPressed: _handleSignIn,
@@ -120,7 +134,7 @@ class _SignInPageState extends State<SignInPage> {
                     style: TextStyle(color: Colors.grey.shade700, fontSize: 13),
                   ),
                 ),
-                const SizedBox(height: 16),
+               SizedBox(height: 16),
                 Center(
                   child: InkWell(
                     onTap: () {},
@@ -131,11 +145,11 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 24),
+                 SizedBox(height: 24),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account? "),
+                     Text("Don't have an account? "),
                     GestureDetector(
                       onTap: () => Navigator.push(
                         context,
@@ -153,7 +167,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20),
               ],
             ),
           ),

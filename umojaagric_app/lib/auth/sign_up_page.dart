@@ -72,12 +72,26 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Image.asset('assets/images/product_image.png', height: 80),
                 ),
                  SizedBox(height: 40),
-                 Text(
-                  'Sign up',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Sign up',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Register as ${widget.role.replaceAll('_', ' ')}',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey.shade600,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 40),
