@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          // Dark overlay for contrast
+         
           Positioned.fill(
             child: Container(
               color: Colors.black.withOpacity(0.5),
@@ -29,15 +29,13 @@ class WelcomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 children: [
-                  const SizedBox(height: 60),
-                  // App Logo
-                  Image.asset(
+                  SizedBox(height: 60),
+                 Image.asset(
                     'assets/images/product_image.png',
                     height: 120,
                   ),
-                  
-                  
-                  const Spacer(),
+                    
+                   Spacer(),
                   // Role Selection Buttons
                   CustomButton(
                     label: 'Sign in as a Farmer',
@@ -79,7 +77,7 @@ class WelcomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                       Text(
                         "Don't have an account? ",
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
@@ -88,7 +86,7 @@ class WelcomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SignUpPage(role: 'farmer'),
+                              builder: (context) =>  SignUpPage(role: 'farmer'),
                             ),
                           );
                         },
@@ -104,7 +102,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 40),
+                   SizedBox(height: 40),
                 ],
               ),
             ),

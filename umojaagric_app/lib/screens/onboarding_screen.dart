@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:umojaagric_app/widgets/onboarding_page.dart';
-import 'package:umojaagric_app/auth/welcome_page.dart';
-import 'package:umojaagric_app/pages/home_page.dart'; // Assuming HomePage exists here based on previous context
+import 'package:umojaagric_app/pages/welcome_page.dart';
+import 'package:umojaagric_app/pages/home_page.dart'; 
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -56,8 +56,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           // SCREEN 1: Splash / Intro
           OnboardingPage(
             backgroundImage: 'assets/images/onboarding_screen_1.png',
-            hasOverlay: true, // Dark overlay for readability
-            backgroundColor: Colors.black, // Fallback
+            hasOverlay: true, 
+            backgroundColor: Colors.black,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -150,8 +150,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 setState(() {
                                   _selectedLanguage = newValue;
                                 });
-                                // Optional: Auto-advance after selection
-                                Future.delayed(const Duration(milliseconds: 500), _nextPage);
+                             
+                                Future.delayed( Duration(milliseconds: 500), _nextPage);
                               },
                               items: _languages.map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
@@ -220,11 +220,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required bool isLastPage,
   }) {
     return OnboardingPage(
-      backgroundColor: Colors.grey.shade100, // Light neutral background
+      backgroundColor: Colors.grey.shade100,
       child: Column(
         children: [
          Spacer(flex: 1),
-          // Rounded Image Card
+         
           Container(
             height: 350,
             margin: EdgeInsets.symmetric(horizontal: 30),
@@ -244,7 +244,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           SizedBox(height: 40),
-          // Text Content
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Column(
@@ -272,18 +271,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           Spacer(flex: 2),
-          // Bottom Controls
           Padding(
             padding: EdgeInsets.all(30.0),
             child: Column(
               children: [
-                // Page Indicator Dots
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(4, (index) => _buildDot(index, pageIndex)),
                 ),
                  SizedBox(height: 30),
-                // Button
                 if (isLastPage)
                   SizedBox(
                     width: double.infinity,
@@ -317,7 +313,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         shape: BoxShape.circle,
                         color: Colors.green,
                       ),
-                      child: const Icon(
+                      child:  Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
                         size: 30,
@@ -333,12 +329,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _buildDot(int index, int currentPageIndex) {
-    // We only show dots for all screens to indicate progress, 
-    // even if the first two are conceptually different.
-    // Logic: If we are on screen 1 (index 0), we highlight dot 0.
-    // The prompt implies indicator dots on Screen 3 & 4. 
-    // I will show them on 3 & 4 essentially, but keeping 4 dots to represent total steps is standard UX.
-    // However, prompt specifically mentions "Page indicator dots" for Screen 3 and 4.
     bool isActive = index == currentPageIndex;
     return AnimatedContainer(
       duration:  Duration(milliseconds: 300),

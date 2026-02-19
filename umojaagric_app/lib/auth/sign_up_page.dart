@@ -75,11 +75,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
               ),
-              const SizedBox(height: 16),
+               SizedBox(height: 16),
               CustomPasswordField(
                 controller: _passwordController,
               ),
-              const SizedBox(height: 16),
+               SizedBox(height: 16),
               CustomTextField(
                 hintText: 'Username',
                 controller: _usernameController,
@@ -88,15 +88,15 @@ class _SignUpPageState extends State<SignUpPage> {
                Text(
                 'By continuing you agree to our Terms of Service and Privacy Policy',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Colors.black54),
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: 32),
               CustomButton(label: 'Sign up', onPressed: _handleSignUp),
-              const SizedBox(height: 32),
+               SizedBox(height: 32),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Already have an account? "),
+                 Text("Already have an account? "),
                   GestureDetector(
                     onTap: () => Navigator.pop(context),
                     child: Text('Sign in', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold)),
