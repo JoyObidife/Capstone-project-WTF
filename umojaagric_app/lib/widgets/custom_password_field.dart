@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 /// This widget maintains its own state for showing/hiding the password content.
 class CustomPasswordField extends StatefulWidget {
   final TextEditingController controller;
+  final String? label;
 
   const CustomPasswordField({
     super.key,
     required this.controller,
+    this.label,
   });
 
   @override
@@ -15,39 +17,54 @@ class CustomPasswordField extends StatefulWidget {
 }
 
 class _CustomPasswordFieldState extends State<CustomPasswordField> {
-  // State variable to toggle password visibility
   bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
-        controller: widget.controller,
-        obscureText: _obscureText,
-        decoration: InputDecoration(
-          hintText: 'Password',
-          filled: true,
-          fillColor: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide.none,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (widget.label != null) ...[
+          Text(
+            widget.label!,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          // Toggle icon to show/hide the password
-          suffixIcon: IconButton(
-            icon: Icon(
-              _obscureText ? Icons.visibility_off : Icons.visibility,
-              color: Theme.of(context).colorScheme.primary,
+          const SizedBox(height: 8),
+        ],
+        TextField(
+          controller: widget.controller,
+          obscureText: _obscureText,
+          decoration: InputDecoration(
+            hintText: 'Password',
+            filled: true,
+            fillColor: Colors.white.withOpacity(0.5),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Colors.grey.shade400),
             ),
-            onPressed: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Colors.grey.shade300),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            suffixIcon: IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility_off : Icons.visibility,
+                color: Colors.grey.shade600,
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText;
+                });
+              },
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

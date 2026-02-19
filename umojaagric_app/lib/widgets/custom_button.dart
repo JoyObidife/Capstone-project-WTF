@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
           backgroundColor: color ?? Theme.of(context).colorScheme.primary,
           foregroundColor: textColor ?? Theme.of(context).colorScheme.onPrimary,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(28), // Fully rounded corners
+            borderRadius: BorderRadius.circular(8), // Standardized with text fields
           ),
           elevation: 2, // Subtle shadow for depth
         ),

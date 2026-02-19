@@ -11,7 +11,6 @@ class FarmerDashboard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.agriculture, size: 100, color: Colors.green),
             Text('Welcome, Farmer!', style: TextStyle(fontSize: 24)),
           ],
         ),

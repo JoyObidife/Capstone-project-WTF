@@ -16,7 +16,7 @@ class UmojaAgriApp extends StatelessWidget {
         useMaterial3: true,
         
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
+          seedColor: Colors.orange,
           primary: Colors.orange.shade800, 
           secondary: Colors.white, 
           onPrimary: Colors.white,

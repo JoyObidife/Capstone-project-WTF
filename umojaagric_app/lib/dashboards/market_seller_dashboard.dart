@@ -11,7 +11,7 @@ class MarketSellerDashboard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.storefront, size: 100, color: Colors.orange),
+          
             Text('Welcome, Market Seller!', style: TextStyle(fontSize: 24)),
           ],
         ),

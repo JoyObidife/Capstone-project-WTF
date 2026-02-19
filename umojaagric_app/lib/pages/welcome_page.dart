@@ -6,6 +6,54 @@ import 'package:umojaagric_app/widgets/custom_button.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
+  void _showSignUpRolePicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) => Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Join UmojaAgri as...',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 24),
+            ListTile(
+              leading: Icon(Icons.agriculture, color: Colors.orange.shade800),
+              title: Text('Farmer'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage(role: 'farmer')));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.local_shipping, color: Colors.orange.shade800),
+              title: Text('Transporter'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage(role: 'transporter')));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.storefront, color: Colors.orange.shade800),
+              title: Text('Market Seller'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage(role: 'market_seller')));
+              },
+            ),
+            SizedBox(height: 16),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +67,10 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
          
+          // darker overlay for better text readability
           Positioned.fill(
             child: Container(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withOpacity(0.6),
             ),
           ),
           SafeArea(
@@ -36,11 +85,20 @@ class WelcomePage extends StatelessWidget {
                   ),
                     
                    Spacer(),
+                  Text(
+                    'Select your role to continue',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 40),
                   // Role Selection Buttons
                   CustomButton(
                     label: 'Sign in as a Farmer',
-                    color: Theme.of(context).colorScheme.primary,
-                    textColor: Theme.of(context).colorScheme.onPrimary,
+                    color: Colors.orange.shade800,
+                    textColor: Colors.white,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -51,8 +109,8 @@ class WelcomePage extends StatelessWidget {
                   const SizedBox(height: 16),
                   CustomButton(
                     label: 'Sign in as a Transporter',
-                    color: Theme.of(context).colorScheme.secondary,
-                    textColor: Theme.of(context).colorScheme.onSecondary,
+                    color: Colors.white,
+                    textColor: Colors.orange.shade800,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -63,8 +121,8 @@ class WelcomePage extends StatelessWidget {
                   const SizedBox(height: 16),
                   CustomButton(
                     label: 'Sign in as a Market Seller',
-                    color: Theme.of(context).colorScheme.secondary,
-                    textColor: Theme.of(context).colorScheme.onSecondary,
+                    color: Colors.white,
+                    textColor: Colors.orange.shade800,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -82,18 +140,11 @@ class WelcomePage extends StatelessWidget {
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>  SignUpPage(role: 'farmer'),
-                            ),
-                          );
-                        },
+                        onTap: () => _showSignUpRolePicker(context),
                         child: Text(
                           'Sign up',
                           style: TextStyle(
-                            color: Theme.of(context).colorScheme.primaryContainer,
+                            color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,

@@ -6,6 +6,7 @@ import 'package:umojaagric_app/dashboards/transporter_dashboard.dart';
 import 'package:umojaagric_app/widgets/custom_button.dart';
 import 'package:umojaagric_app/widgets/custom_password_field.dart';
 import 'package:umojaagric_app/widgets/custom_text_field.dart';
+import 'package:umojaagric_app/utils/role_theme.dart';
 
 class SignInPage extends StatefulWidget {
   final String role;
@@ -20,17 +21,12 @@ class _SignInPageState extends State<SignInPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  String get _roleTitle {
-    switch (widget.role) {
-      case 'farmer':
-        return 'Farmer';
-      case 'transporter':
-        return 'Transporter';
-      case 'market_seller':
-        return 'Market Seller';
-      default:
-        return 'User';
-    }
+  late RoleTheme _theme;
+
+  @override
+  void initState() {
+    super.initState();
+    _theme = RoleTheme.getTheme(widget.role);
   }
 
   void _handleSignIn() {
@@ -58,78 +54,108 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            children: [
-              Image.asset('assets/images/product_image.png', height: 80),
-              SizedBox(height: 20),
-              Text(
-                'Sign in',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Sign in as $_roleTitle',
-                style: TextStyle(fontSize: 16, color: Colors.grey),
-              ),
-              SizedBox(height: 40),
-              CustomTextField(
-                hintText: 'Email',
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-              ),
-              SizedBox(height: 16),
-              CustomPasswordField(controller: _passwordController),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text('Forgot password?', ),
-                 
+      backgroundColor: _theme.backgroundColor,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                Center(
+                  child: Image.asset('assets/images/product_image.png', height: 80),
                 ),
-              ),
-              SizedBox(height: 24),
-              CustomButton(label: 'Sign in', onPressed: _handleSignIn),
-              SizedBox(height: 32),
-              Text(
-                'Or sign in with Google',
-                style: TextStyle(color: Colors.grey),
-              ),
-              SizedBox(height: 16),
-              InkWell(
-                onTap: () {},
-                child: Image.asset(
-                  'assets/images/google_icon.png',
-                  height: 48,
-                  width: 48,
+                const SizedBox(height: 40),
+                const Text(
+                  'Sign in',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
                 ),
-              ),
-              SizedBox(height: 32),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account? "),
-                  GestureDetector(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignUpPage(role: widget.role),
-                      ),
-                    ),
+                const SizedBox(height: 40),
+                CustomTextField(
+                  label: 'Email',
+                  hintText: 'enter your email',
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 16),
+                CustomPasswordField(
+                  label: 'Password',
+                  controller: _passwordController,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
                     child: Text(
-                      'Sign up',
+                      'Forgot password?',
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontWeight: FontWeight.bold,
+                        color: _theme.primaryColor,
+                        fontSize: 12,
+                        decoration: TextDecoration.underline,
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                const SizedBox(height: 20),
+                const SizedBox(height: 32),
+                CustomButton(
+                  label: 'Sign in',
+                  onPressed: _handleSignIn,
+                  color: _theme.primaryColor,
+                ),
+                const SizedBox(height: 24),
+                Center(
+                  child: Text(
+                    'Or sign in with Google',
+                    style: TextStyle(color: Colors.grey.shade700, fontSize: 13),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Center(
+                  child: InkWell(
+                    onTap: () {},
+                    child: Image.asset(
+                      'assets/images/google_icon.png',
+                      height: 48,
+                      width: 48,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't have an account? "),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpPage(role: widget.role),
+                        ),
+                      ),
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(
+                          color: _theme.primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

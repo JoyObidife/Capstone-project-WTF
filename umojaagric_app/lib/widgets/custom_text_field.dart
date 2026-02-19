@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 /// - [keyboardType]: To specify the type of input (email, phone, etc.).
 class CustomTextField extends StatelessWidget {
   final String hintText;
+  final String? label;
   final TextEditingController controller;
   final TextInputType keyboardType;
 
@@ -16,28 +17,45 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.controller,
+    this.label,
     this.keyboardType = TextInputType.text,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
-        controller: controller,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          hintText: hintText,
-          // Using surfaceVariant for a subtle, modern input background
-          filled: true,
-          fillColor: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide.none,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (label != null) ...[
+          Text(
+            label!,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          const SizedBox(height: 8),
+        ],
+        TextField(
+          controller: controller,
+          keyboardType: keyboardType,
+          decoration: InputDecoration(
+            hintText: hintText,
+            filled: true,
+            fillColor: Colors.white.withOpacity(0.5),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Colors.grey.shade400),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Colors.grey.shade300),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
