@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umojaagric_app/widgets/onboarding_page.dart';
-import 'package:umojaagric_app/pages/role_selection_screen.dart';
+import 'package:umojaagric_app/pages/Logic_page.dart';
 import 'package:umojaagric_app/pages/home_page.dart'; // Assuming HomePage exists here based on previous context
 
 class OnboardingScreen extends StatefulWidget {
