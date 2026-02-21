@@ -29,7 +29,7 @@ class _MarketSellerDashboardState extends State<MarketSellerDashboard> {
         backgroundColor: Colors.blue.shade50,
         currentIndex: indexToBeShown,
         selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey.shade700,
         type: BottomNavigationBarType.fixed,
         onTap: (value) {
           setState(() {

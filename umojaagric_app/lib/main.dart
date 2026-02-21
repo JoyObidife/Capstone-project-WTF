@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:umojaagric_app/pages/welcome_page.dart';
+import 'package:umojaagric_app/screens/onboarding_screen.dart';
+import 'package:umojaagric_app/widgets/onboarding_page.dart';
 
 void main() {
   runApp(const UmojaAgriApp());

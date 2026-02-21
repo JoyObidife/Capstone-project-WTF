@@ -13,7 +13,7 @@ class WelcomePage extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (context) => Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding:  EdgeInsets.all(24.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +59,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Full-screen background image
+          
           Positioned.fill(
             child: Image.asset(
               'assets/images/login_image.jpeg',
@@ -67,7 +67,7 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
          
-          // darker overlay for better text readability
+       
           Positioned.fill(
             child: Container(
               color: Colors.black.withOpacity(0.6),
@@ -75,7 +75,7 @@ class WelcomePage extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding:  EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 children: [
                   SizedBox(height: 60),
@@ -106,7 +106,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                   SizedBox(height: 16),
                   CustomButton(
                     label: 'Sign in as a Transporter',
                     color: Colors.white,
@@ -118,7 +118,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                   SizedBox(height: 16),
                   CustomButton(
                     label: 'Sign in as a Market Seller',
                     color: Colors.white,

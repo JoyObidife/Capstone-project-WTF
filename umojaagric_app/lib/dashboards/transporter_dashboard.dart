@@ -15,10 +15,10 @@ class _TransporterDashboardState extends State<TransporterDashboard> {
   int indexToBeShown = 0;
 
   final List<Widget> pages = [
-    const MyLoadsPage(),
-    const RoutesPage(),
-    const EarningsPage(),
-    const DocumentsPage(),
+     MyLoadsPage(),
+    RoutesPage(),
+     EarningsPage(),
+     DocumentsPage(),
   ];
 
   @override
@@ -29,7 +29,7 @@ class _TransporterDashboardState extends State<TransporterDashboard> {
         backgroundColor: Colors.blue.shade50,
         currentIndex: indexToBeShown,
         selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey.shade700,
         type: BottomNavigationBarType.fixed,
         onTap: (value) {
           setState(() {

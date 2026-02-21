@@ -14,7 +14,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  final List<String> _languages = ['English', 'Swahili', 'French'];
+  final List<String> _languages = ['English', 'Swahili', 'French','Igbo', 'Yoruba', 'Hausa'];
   String? _selectedLanguage = 'English';
 
   @override
@@ -139,7 +139,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                           DropdownButtonHideUnderline(
                             child: DropdownButton<String>(
-                              value: _selectedLanguage,
+                              //value: _selectedLanguage,
                               icon:  Icon(Icons.arrow_drop_down, color: Colors.green),
                               style: TextStyle(
                                 fontSize: 18,
@@ -181,7 +181,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
-                        size: 22,
+                        size: 20,
                       ),
                     ),
                   ),
