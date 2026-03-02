@@ -17,7 +17,7 @@ class RoleTheme {
 
   static RoleTheme getTheme(String role) {
     Color orangePrimary = Colors.orange.shade800;
-    Color lightBg = const Color(0xFFF2F5E9); // Light greenish-gray to match screenshot
+    Color lightBg = Colors.lightGreen.shade50; // Use shade50 instead of hex
     switch (role) {
       case 'farmer':
         return RoleTheme(

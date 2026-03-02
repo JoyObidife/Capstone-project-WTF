@@ -80,7 +80,7 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   SizedBox(height: 60),
                  Image.asset(
-                    'assets/images/product_image.png',
+                    'assets/images/product_image_2.png',
                     height: 120,
                   ),
                     

@@ -43,7 +43,7 @@ class _FarmerDashboardState extends State<FarmerDashboard> {
           ),
           BottomNavigationBarItem(
             label: "Crops",
-            icon: Icon(Icons.agriculture, color: Colors.green),
+            icon: Icon(Icons.eco, color: Colors.green),
           ),
           BottomNavigationBarItem(
             label: "Shipments",
