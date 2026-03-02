@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../widgets/shipment_card.dart';
+import 'transporter_assigned_page.dart';
 
 class ShipmentsPage extends StatefulWidget {
   const ShipmentsPage({super.key});
@@ -205,9 +206,9 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
             'Driver': 'Ahmed Musa',
             'Distance': '420 km',
             'Driver\'s Phone No': '+234 803 456 7890',
-            'Departure': 'Feb 18, 2026',
+            'Departure': 'Mar ch 18, 2026',
             'License Plate': 'LAG-485-FD',
-            'Est. Arrival': 'Feb 20, 2026',
+            'Est. Arrival': 'March 20, 2026',
             'Rate': '₦85,000',
           },
         ),
@@ -226,9 +227,9 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
             'Driver': 'Mary Eze',
             'Distance': '280 km',
             'Driver\'s Phone No': '+234 803 215 2240',
-            'Departure': 'Feb 14, 2026',
+            'Departure': 'March  14, 2026',
             'License Plate': 'LAG-485-FD',
-            'Est. Arrival': 'Feb 16, 2026',
+            'Est. Arrival': 'March 16, 2026',
             'Rate': '₦150,000',
           },
         ),
@@ -246,11 +247,17 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
           details: const {
             'Destination': 'Kano Market',
             'Driver': 'Not Assigned',
-            'Departure': 'Feb 19, 2026',
-            'Est. Arrival': 'Feb 21, 2026',
+            'Departure': 'March 19, 2026',
+            'Est. Arrival': 'March 21, 2026',
             'Distance': '580 km',
           },
           showActionButton: true,
+          onActionButtonPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const TransporterAssignedPage()),
+            );
+          },
         ),
       ],
     );
