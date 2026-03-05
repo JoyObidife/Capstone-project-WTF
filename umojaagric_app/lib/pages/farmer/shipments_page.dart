@@ -206,7 +206,7 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
             'Driver': 'Ahmed Musa',
             'Distance': '420 km',
             'Driver\'s Phone No': '+234 803 456 7890',
-            'Departure': 'Mar ch 18, 2026',
+            'Departure': 'March 18, 2026',
             'License Plate': 'LAG-485-FD',
             'Est. Arrival': 'March 20, 2026',
             'Rate': '₦85,000',

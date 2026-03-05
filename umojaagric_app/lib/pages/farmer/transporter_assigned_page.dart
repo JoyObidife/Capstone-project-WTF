@@ -144,7 +144,7 @@ class TransporterAssignedPage extends StatelessWidget {
               _buildDetailItem('License Plate', 'LAG-485-FD'),
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Row(
             children: [
               _buildDetailItem('Rate', '₦85,000'),
