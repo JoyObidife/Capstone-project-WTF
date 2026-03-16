@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ai_route_recommendation_page.dart';
 
 class MyLoadsPage extends StatelessWidget {
   const MyLoadsPage({super.key});
@@ -30,7 +31,7 @@ class MyLoadsPage extends StatelessWidget {
                    SizedBox(height: 20),
                     _buildRouteCard(primaryGreen, cardBgGreen),
                     SizedBox(height: 20),
-                    _buildAIRouteButton(primaryGreen),
+                    _buildAIRouteButton(context, primaryGreen),
                     SizedBox(height: 30),
                     _buildStatusUpdateSection(primaryGreen),
                     SizedBox(height: 30),
@@ -217,11 +218,18 @@ class MyLoadsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildAIRouteButton(Color bgColor) {
+  Widget _buildAIRouteButton(BuildContext context, Color bgColor) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AiRouteRecommendationPage(),
+            ),
+          );
+        },
         icon: Icon(Icons.near_me_outlined),
         label: Text('AI-Recommended Route'),
         style: ElevatedButton.styleFrom(

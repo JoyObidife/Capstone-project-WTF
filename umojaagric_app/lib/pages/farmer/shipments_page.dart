@@ -74,12 +74,12 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
               right: 0,
               top: 0,
               child: Container(
-                padding: const EdgeInsets.all(4),
-                decoration: const BoxDecoration(
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
                   color: Colors.red,
                   shape: BoxShape.circle,
                 ),
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   minWidth: 8,
                   minHeight: 8,
                 ),
@@ -94,9 +94,9 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
   Widget _buildActiveShipmentsCard() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.green.shade800, // Dark green
+        color: Colors.green.shade800, 
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
